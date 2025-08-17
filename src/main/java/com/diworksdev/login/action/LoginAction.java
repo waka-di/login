@@ -3,8 +3,9 @@ import java.sql.SQLException;
 
 import com.diworksdev.login.dao.LoginDAO;
 import com.diworksdev.login.dto.LoginDTO;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction {
+public class LoginAction extends ActionSupport{
 	private String name;  //JSPから受け取る値必ず一緒
 	private String password;
 	
@@ -18,7 +19,7 @@ public class LoginAction {
 		
 		if(name.equals(dto.getName())) {  //DTOから戻ってきた値が一致するか確認
 			if(password.equals(dto.getPassword())){
-			ret = SUCCESS ;  //if条件満たしたらSUCCESSに書き換え
+				ret = SUCCESS ;  //if条件満たしたらSUCCESSに書き換え
 			}
 		}
 		return ret; 
